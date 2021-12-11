@@ -1,3 +1,5 @@
+import sys
+
 """
 Binary search algorithm implemented in python
 """
@@ -29,8 +31,9 @@ def binary_search(array, target, callback):  # assumes array is sorted
 
 
 if __name__ == "__main__":
-    array = [1, 2, 3, 4, 5, 6]
-    target = 4
+    string_nums = sys.argv[1]
+    array = [int(num) for num in string_nums]
+    target = int(sys.argv[2])
 
     result = binary_search(array, target, callback)
     print(result)
