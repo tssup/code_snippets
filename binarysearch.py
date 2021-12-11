@@ -21,9 +21,9 @@ def binary_search(array, start, end, target):  # assumes array is sorted
 
 if __name__ == "__main__":
     # array = [1, 2, 3, 4, 5, 6]
-# start = 0
-# end = len(array) - 1
-# target = 4
+    # start = 0
+    # end = len(array) - 1
+    # target = 4
 
-# result = binary_search(array, start, end, target)
-# print(result)
+    # result = binary_search(array, start, end, target)
+    # print(result)
