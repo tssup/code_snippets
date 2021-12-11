@@ -3,7 +3,16 @@ Binary search algorithm implemented in python
 """
 
 
-def binary_search(array, start, end, target):  # assumes array is sorted
+def callback(array):
+    start = 0
+    end = len(array) - 1
+
+    return (start, end)
+
+
+def binary_search(array, target, callback):  # assumes array is sorted
+    start, end = callback(array)
+
     if start > end:
         return False
 
@@ -13,17 +22,15 @@ def binary_search(array, start, end, target):  # assumes array is sorted
         return True
 
     if array[mid_index] > target:  # recurse left array
-        return binary_search(array, start, mid_index - 1, target)
+        return binary_search(array[start : mid_index - 1], target, callback)
 
     else:
-        return binary_search(array, mid_index + 1, end, target)
+        return binary_search(array[mid_index + 1 : end], target, callback)
 
 
 if __name__ == "__main__":
-    # array = [1, 2, 3, 4, 5, 6]
-    # start = 0
-    # end = len(array) - 1
-    # target = 4
+    array = [1, 2, 3, 4, 5, 6]
+    target = 4
 
-    # result = binary_search(array, start, end, target)
-    # print(result)
+    result = binary_search(array, target, callback)
+    print(result)
